@@ -36,3 +36,18 @@ The example above should be enough to get you moving.
 Open Finder, then press âŒ˜K. Enter `smb://<docker_host_ip>`
 and press `Connect`.
 Enter login and password you supplied at the run stage.
+
+last ran with 
+```
+  docker run -d \
+    -p 137:137/udp \
+    -p 138:138/udp \
+    -p 139:139 \
+    -p 445:445 \
+    -p 445:445/udp \
+    --restart='always' \
+    --hostname 'fileserver' \
+    -v /media/stick:/share/stick \
+    --name samba dastrasmue/rpi-samba:latest \
+    -s "fileserver:/share/stick:rw:"
+```
